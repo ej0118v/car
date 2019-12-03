@@ -20,50 +20,33 @@
 
 
 <!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Spatial by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="${root }/assets/css/main.css" />
-		<script type="text/javascript" src="${root }/assets/js/jquery.min.js"></script>
-		<script type="text/javascript" src="${root }/assets/js/skel.min.js"></script>
-		<script type="text/javascript" src="${root }/assets/js/util.js"></script>
-		<script type="text/javascript" src="${root }/assets/js/main.js"></script>
-	</head>
-	<body class="landing">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="${root }/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="${root }/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
-		<!-- Header -->
-		<header id="header" class="alt">
-			<h1><strong><a href="index.html">HAP</a></strong> Team project</h1>
-			<nav id="nav">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="">Board</a></li>
-					<li><a href="">Reservation</a></li>
-					<li><a href="#">더보기</a>
-						<ul><a href="${root }/notice/listNotice">Notice</a></ul>
-						<ul><a href="${root }/notice/listNotice">QnA</a></ul>
-					</li>
-<%-- 					<li><a href="${root }/notice/listNotice">Notice</a></li> --%>
-<%-- 					<li><a href="${root }/notice/listNotice">QnA</a></li> --%>
-					<li><a href="">Log-in</a></li>
-					<li><a href="">Join</a></li>
-						
-				</ul>
-			</nav>
-		</header>
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
-		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+</head>
+<body>
 
-		<!-- Banner -->
-		
-		<section id="banner">
-			<h2>Logo</h2>
-			<p>Logo자리 <br /> 간단 사이트 설명?</p>
-			<ul class="actions">
-				<li><a href="#" class="button special big">지역검색</a></li>
-			</ul>
-		</section>
-	</body>
+<div id="header" class="container">
+	<div id="logo">
+		<h1><a href="#">TailPiece</a></h1>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="active"><a href="#" accesskey="1" title="">Homepage</a></li>
+			<li><a href="#" accesskey="3" title="">Gallery</a></li>
+			<li><a href="${root }/notice/listNotice" accesskey="3" title="">notice</a></li>
+			<li><a href="#" accesskey="5" title="">Contact</a></li>
+		</ul>
+	</div>
+</div>
+</body>
 </html>

@@ -8,17 +8,8 @@
 </head>
 <body>
 <footer id="footer">
-	<div class="container">
-		<ul class="icons">
-			<li><a href="#" class="icon fa-facebook"></a></li>
-			<li><a href="#" class="icon fa-twitter"></a></li>
-			<li><a href="#" class="icon fa-instagram"></a></li>
-		</ul>
-		<ul class="copyright">
-			<li>&copy; Untitled</li>
-			<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
-			<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
-		</ul>
+	<div id="copyright" class="container">
+		<p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 	</div>
 </footer>
 </body>
