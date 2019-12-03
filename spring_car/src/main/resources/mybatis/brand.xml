@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring.model.mapper.BrandMapper">
+<!-- mapper를 root-context.xml에 지정을 해주면 경로를 바꿔줘야함  -->
+	<select id="list" parameterType="Map" resultType="BrandDTO">
+		select bname, bfname, bfsize, r from(
+			select bname, bfname, bfsize, rownum r from (
+				select bname, bfname, bfsize from car
+				
+				))
+				<![CDATA[where r>=#{sno} and r<=#{enp}]]>
+	</select>
+
+	<select id="total" parameterType="Map" resultType="int">
+		select count(*) from brand
+			<where>
+				<choose>
+					<when test="col==''"> like '%'||#{word}||'%'</when>
+					<when test="col==''"> like '%'||#{word}||'%'</when>
+					<when test="col==''"> like '%'||#{word}||'%'</when>
+					<when test="col==''"> like '%'||#{word}||'%'</when>
+				</choose>
+			</where>
+	</select>
+	
+	<insert id="create" parameterType="BrandDTO" >
+		insert into car(bname, bfname, bfsize,)
+		values(bname, #{bfname, jdbcType=VARCHAR}, #{bfsize, jdbcType=INTEGER})
+	</insert>
+	
+	<select id="read" parameterType="int" resultType="BrandDTO">
+		select b.bname, b.bfname, b.bfsize, c.cname, c.ctype, c.coil, c.cprice, c.csize
+		from brand b, car c
+		where b.bname=c.bname
+	
+	
+
+	</select>
+	
+<!-- 	<update id="update" parameterType="CarDTO"> -->
+<!-- 		update car -->
+<!-- 			<set> -->
+<!-- 			cname=#{cname}, ctype=#{ctype}, coil=#{coil}, cyear=#{cyear}, cprice=#{cprice}, csize=#{csize} -->
+<!-- 				<if test="cfsize>0"> -->
+<!-- 					cfname=#{cfname}, cfsize=#{cfsize} -->
+<!-- 				</if> -->
+<!-- 			</set> -->
+<!-- 		where nnum=#{nnum} -->
+<!-- 	</update> -->
+	
+<!-- 	<delete id="delete" parameterType="int"> -->
+<!-- 		delete from car where cnum=#{cnum} -->
+<!-- 	</delete> -->
+	
+		
+</mapper>

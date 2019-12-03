@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring.model.mapper.CarMapper">
+<!-- mapper를 root-context.xml에 지정을 해주면 경로를 바꿔줘야함  -->
+
+	
+	<select id="list" parameterType="Map" resultType="CarDTO">
+		select cnum, id, bname, cname, ctype, coil, cyear, cprice, csize, cfname, cfsize, r from(
+			select cnum, id, bname, cname, ctype, coil, cyear, cprice, csize, cfname, cfsize, rownum r from (
+				select cnum, id, bname, cname, ctype, coil, cyear, cprice, csize, cfname, cfsize from car
+				<where>
+					<choose>
+						<when test="col=="> like '%'||#{word}||'%'</when>
+						<when test="col=="> like '%'||#{word}||'%'</when>
+						<when test="col==id"> like '%'||#{word}||'%'</when>
+						<when test="col==id"> like '%'||#{word}||'%'</when>
+					</choose>
+				</where>
+				order by cnum desc))
+				<![CDATA[where r>=#{sno} and r<=#{enp}]]>
+	</select>
+
+	<select id="total" parameterType="Map" resultType="int">
+		select count(*) from car
+			<where>
+				<choose>
+					<when test="col==''"> like '%'||#{word}||'%'</when>
+					<when test="col==''"> like '%'||#{word}||'%'</when>
+					<when test="col==''"> like '%'||#{word}||'%'</when>
+					<when test="col==''"> like '%'||#{word}||'%'</when>
+				</choose>
+			</where>
+	</select>
+	
+	<insert id="create" parameterType="CarDTO" >
+		insert into car(cnum, cname, ctype, coil, cyear, cprice, csize, cfname, cfsize)
+		values((select nvl(max(cnum),0) +1 from notice), #{cname}, #{ctype}, #{coil}, #{cyear}, #{cprice}, #{csize}, #{cfname, jdbcType=VARCHAR}, #{cfsize, jdbcType=INTEGER})
+	</insert>
+	
+	<select id="read" parameterType="int" resultType="CarDTO">
+		 select cnum, bname, cname, ctype, coil, cyear, cprice, csize, cfname, cfsize from car where cprice=#{cprice} 
+	</select>
+	
+	<update id="update" parameterType="CarDTO">
+		update car
+			<set>
+			cname=#{cname}, ctype=#{ctype}, coil=#{coil}, cyear=#{cyear}, cprice=#{cprice}, csize=#{csize}
+				<if test="cfsize>0">
+					cfname=#{cfname}, cfsize=#{cfsize}
+				</if>
+			</set>
+		where nnum=#{nnum}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from car where cnum=#{cnum}
+	</delete>			
+</mapper>
